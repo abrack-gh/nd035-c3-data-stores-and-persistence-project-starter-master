@@ -13,7 +13,7 @@ public interface CustomersRepository extends JpaRepository<Customers, Long> {
     List<Customers> getCustomers();
 
     @Query("Select customer from Customer customer where customer.id = :customerId")
-    Customers getCustomerById();
+    Customers getCustomerById(Long customerId);
 
     @Query("Select customer from Customer customer"
     + "INNER JOIN Pet pet on customer.id = pet.customer.id" +

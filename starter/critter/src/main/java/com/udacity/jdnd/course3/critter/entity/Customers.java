@@ -21,4 +21,7 @@ public class Customers {
 
     private static final Logger logger = LoggerFactory.getLogger(Customers.class);
 
+    public List<Pet> getPets() {
+        return pets;
+    }
 }
