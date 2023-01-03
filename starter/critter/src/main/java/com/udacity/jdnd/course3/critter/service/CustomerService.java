@@ -48,13 +48,14 @@ public class CustomerService {
     }
 
     public Customers addPetToCustomer(Pet pets, Customers customer){
-        List<Pet> listOfPets = customer.getPets();
+        List<Pet> listOfCustomerPets = customer.getPets();
 
-        if(listOfPets.isEmpty()){
-            listOfPets = new ArrayList<>();
+        if(listOfCustomerPets.isEmpty()){
+            listOfCustomerPets = new ArrayList<Pet>();
+            Pet pet;
         }
-        listOfPets.add(pet);
-        customer.setPets(listOfPets);
+        listOfCustomerPets.add(pets);
+        customer.setPets((List<Pet>) pets);
         customersRepository.save(customer);
 
         return customer;
