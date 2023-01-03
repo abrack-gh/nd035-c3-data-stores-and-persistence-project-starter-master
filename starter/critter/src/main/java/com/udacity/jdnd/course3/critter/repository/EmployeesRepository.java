@@ -22,6 +22,7 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long> {
     @Query("Select employee from Employees employee"
             + "Where :employeeDOWAvailable MEMBER OF employee.employeeDOWAvailable")
     Employees getEmployeeAvailability(@Param("employeeDOWAvailable")DayOfWeek dayOfWeek);
+
 }
 
 

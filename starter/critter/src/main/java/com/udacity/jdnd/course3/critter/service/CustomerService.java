@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.service;
 
+import com.udacity.jdnd.course3.critter.dto.CustomerDTO;
 import com.udacity.jdnd.course3.critter.entity.Customers;
 import com.udacity.jdnd.course3.critter.entity.Pet;
 import com.udacity.jdnd.course3.critter.repository.CustomersRepository;
@@ -33,12 +34,6 @@ public class CustomerService {
         Customers customers = customersRepository.getCustomerByPetId(petId);
 
         return customers;
-    }
-
-    public Customers saveCustomer(Customers customer){
-        Customers newCustomer = customersRepository.save(customer);
-
-        return newCustomer;
     }
 
     public Customers deleteCustomerById(Long customerId){
