@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.dto;
 
+import com.udacity.jdnd.course3.critter.entity.Customers;
 import com.udacity.jdnd.course3.critter.entity.Pet;
 import com.udacity.jdnd.course3.critter.enums.PetType;
 
@@ -69,5 +70,9 @@ public class PetDTO {
 
     public void setOwnerId(Long ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public Pet toEntity(PetDTO petDTO, Customers customer){
+        return new Pet(petDTO.getName(),petDTO.getPetType(), petDTO.getNotes(),customer, petDTO.getAge());
     }
 }

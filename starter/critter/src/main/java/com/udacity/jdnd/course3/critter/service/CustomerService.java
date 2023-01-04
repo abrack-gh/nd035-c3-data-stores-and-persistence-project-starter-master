@@ -93,10 +93,10 @@ public class CustomerService {
     }
 
     public CustomerDTO saveCustomer(Customers Customer, CustomerDTO customerDTO){
-        Customers customers = new Customers(customerDTO.getFirstName(), customerDTO.getLastName(), customerDTO.getPhoneNumber();
+        Customers customers = new Customers(customerDTO.getFirstName(), customerDTO.getLastName(), customerDTO.getPhoneNumber());
         Customers savedCustomer = customersRepository.save(customers);
 
         return customerDTO;
     }
-    
+
 }

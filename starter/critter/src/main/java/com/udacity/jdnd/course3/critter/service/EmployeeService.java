@@ -25,7 +25,7 @@ public class EmployeeService {
     @Autowired
     EmployeeDTO employeeDTO;
 
-    public EmployeeDTO saveEmployee(Employees employees, EmployeeDTO employeeDTO){
+    public EmployeeDTO saveEmployee(Employees employees, EmployeeDTO employeeDTO) {
         Employees employee = new Employees(employeeDTO.getFirstName(), employeeDTO.getLastName(), employeeDTO.getPhoneNumber());
         Employees savedEmployee = employeesRepository.save(employees);
 
@@ -36,10 +36,13 @@ public class EmployeeService {
         return this.employeesRepository.getAllEmployees();
     }
 
-    public EmployeeDTO getEmployeeById(Long Id){
+    public EmployeeDTO getEmployeeById(Long Id) {
         Optional<Employees> employee = employeesRepository.findById(Id);
-        if(employee.isPresent()){
+        if (employee.isPresent()) {
             return new EmployeeDTO(employee.get());
         }
+        return null;
     }
 }
+
+

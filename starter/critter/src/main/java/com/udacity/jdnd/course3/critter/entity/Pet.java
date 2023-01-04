@@ -24,6 +24,9 @@ public class Pet {
     @JoinTable(name = "customerId")
     private Customers customers;
 
+    public Pet(String name, PetType petType, String notes, Customers customer, Integer age) {
+    }
+
     public List<Schedule> getSchedule() {
         return schedule;
     }

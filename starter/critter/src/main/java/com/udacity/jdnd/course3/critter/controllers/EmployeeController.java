@@ -1,13 +1,9 @@
 package com.udacity.jdnd.course3.critter.controllers;
 
-import com.udacity.jdnd.course3.critter.dto.CustomerDTO;
 import com.udacity.jdnd.course3.critter.dto.EmployeeDTO;
-import com.udacity.jdnd.course3.critter.entity.Customers;
 import com.udacity.jdnd.course3.critter.entity.Employees;
-import com.udacity.jdnd.course3.critter.repository.CustomersRepository;
 import com.udacity.jdnd.course3.critter.repository.EmployeesRepository;
 import com.udacity.jdnd.course3.critter.repository.PetRepository;
-import com.udacity.jdnd.course3.critter.service.CustomerService;
 import com.udacity.jdnd.course3.critter.service.EmployeeService;
 import com.udacity.jdnd.course3.critter.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +34,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee")
-    public List<Employees> getAllEmployees(){
+    public List<Employees> getAllEmployees(Long id){
         return employeeService.getAllEmployees();
     }
 

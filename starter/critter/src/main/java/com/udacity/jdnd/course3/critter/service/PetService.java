@@ -27,7 +27,9 @@ public class PetService {
         Customers customer = customersRepository.findById(petDTO.getOwnerId()).get();
         Pet pet = petDTO.toEntity(petDTO, customer);
         customer.addPet(pet);
+
         Pet savedPet = petRepository.save(pet);
+        return petDTO;
     }
 
     public PetDTO getPet(Long id){
