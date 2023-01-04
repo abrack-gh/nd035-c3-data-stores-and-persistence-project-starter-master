@@ -19,6 +19,10 @@ public class Customers {
     @OneToMany(mappedBy = "customers", cascade = CascadeType.ALL)
     private List<Pet> pets;
 
+    public Long getId() {
+        return id;
+    }
+
     private static final Logger logger = LoggerFactory.getLogger(Customers.class);
 
     public List<Pet> getPets() {

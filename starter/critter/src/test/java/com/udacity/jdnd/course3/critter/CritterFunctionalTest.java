@@ -2,6 +2,8 @@ package com.udacity.jdnd.course3.critter;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.udacity.jdnd.course3.critter.controllers.CustomerController;
+import com.udacity.jdnd.course3.critter.controllers.EmployeeController;
 import com.udacity.jdnd.course3.critter.controllers.PetController;
 import com.udacity.jdnd.course3.critter.controllers.ScheduleController;
 import com.udacity.jdnd.course3.critter.controllers.UserController;
@@ -9,6 +11,7 @@ import com.udacity.jdnd.course3.critter.dto.CustomerDTO;
 import com.udacity.jdnd.course3.critter.dto.EmployeeDTO;
 import com.udacity.jdnd.course3.critter.dto.PetDTO;
 import com.udacity.jdnd.course3.critter.dto.ScheduleDTO;
+import com.udacity.jdnd.course3.critter.entity.Customers;
 import com.udacity.jdnd.course3.critter.pet.PetController;
 import com.udacity.jdnd.course3.critter.pet.PetDTO;
 import com.udacity.jdnd.course3.critter.pet.PetType;
@@ -41,7 +44,10 @@ import java.util.stream.IntStream;
 public class CritterFunctionalTest {
 
     @Autowired
-    private UserController userController;
+    private CustomerController customerController;
+
+    @Autowired
+    private EmployeeController employeeController;
 
     @Autowired
     private PetController petController;
@@ -52,9 +58,9 @@ public class CritterFunctionalTest {
     @Test
     public void testCreateCustomer(){
         CustomerDTO customerDTO = createCustomerDTO();
-        CustomerDTO newCustomer = userController.saveCustomer(customerDTO);
-        CustomerDTO retrievedCustomer = userController.getAllCustomers().get(0);
-        Assertions.assertEquals(newCustomer.getName(), customerDTO.getName());
+        CustomerDTO newCustomer = customerController.saveCustomer(customerDTO);
+        Customers retrievedCustomer = customerController.getAllCustomers().get(0);
+        Assertions.assertEquals(newCustomer.getFirstName(), customerDTO.getFirstName());
         Assertions.assertEquals(newCustomer.getId(), retrievedCustomer.getId());
         Assertions.assertTrue(retrievedCustomer.getId() > 0);
     }
@@ -62,8 +68,8 @@ public class CritterFunctionalTest {
     @Test
     public void testCreateEmployee(){
         EmployeeDTO employeeDTO = createEmployeeDTO();
-        EmployeeDTO newEmployee = userController.saveEmployee(employeeDTO);
-        EmployeeDTO retrievedEmployee = userController.getEmployee(newEmployee.getId());
+        EmployeeDTO newEmployee = employeeController.saveEmployee(employeeDTO);
+        EmployeeDTO retrievedEmployee = employeeController.getAllEmployees(newEmployee.getId());
         Assertions.assertEquals(employeeDTO.getSkills(), newEmployee.getSkills());
         Assertions.assertEquals(newEmployee.getId(), retrievedEmployee.getId());
         Assertions.assertTrue(retrievedEmployee.getId() > 0);
@@ -72,7 +78,7 @@ public class CritterFunctionalTest {
     @Test
     public void testAddPetsToCustomer() {
         CustomerDTO customerDTO = createCustomerDTO();
-        CustomerDTO newCustomer = userController.saveCustomer(customerDTO);
+        CustomerDTO newCustomer = customerController.saveCustomer(customerDTO);
 
         PetDTO petDTO = createPetDTO();
         petDTO.setOwnerId(newCustomer.getId());

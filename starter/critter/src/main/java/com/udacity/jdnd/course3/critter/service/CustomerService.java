@@ -8,10 +8,13 @@ import com.udacity.jdnd.course3.critter.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class CustomerService {
 
     @Autowired
@@ -20,8 +23,41 @@ public class CustomerService {
     @Autowired
     PetRepository petRepository;
 
+    @Autowired
+    CustomerDTO customerDTO;
+
     public List<Customers> getAllCustomers(){
         return customersRepository.getCustomers();
+    }
+
+    public CustomerService(CustomersRepository customersRepository, PetRepository petRepository, CustomerDTO customerDTO) {
+        this.customersRepository = customersRepository;
+        this.petRepository = petRepository;
+        this.customerDTO = customerDTO;
+    }
+
+    public CustomersRepository getCustomersRepository() {
+        return customersRepository;
+    }
+
+    public void setCustomersRepository(CustomersRepository customersRepository) {
+        this.customersRepository = customersRepository;
+    }
+
+    public PetRepository getPetRepository() {
+        return petRepository;
+    }
+
+    public void setPetRepository(PetRepository petRepository) {
+        this.petRepository = petRepository;
+    }
+
+    public CustomerDTO getCustomerDTO() {
+        return customerDTO;
+    }
+
+    public void setCustomerDTO(CustomerDTO customerDTO) {
+        this.customerDTO = customerDTO;
     }
 
     public Customers getCustomerById(Long customerId){
@@ -55,4 +91,12 @@ public class CustomerService {
 
         return customer;
     }
+
+    public CustomerDTO saveCustomer(Customers Customer, CustomerDTO customerDTO){
+        Customers customers = new Customers(customerDTO.getFirstName(), customerDTO.getLastName(), customerDTO.getPhoneNumber();
+        Customers savedCustomer = customersRepository.save(customers);
+
+        return customerDTO;
+    }
+    
 }
