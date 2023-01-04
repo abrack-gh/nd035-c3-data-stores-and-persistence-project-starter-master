@@ -40,11 +40,13 @@ public class EmployeeDTO {
         return phoneNumber;
     }
 
-    public List<String> getSkills() {
-        return Skills;
+    public Set<EmployeeSkill> getSkills() {
+
+        return skills;
     }
 
-    public List<String> getEmployeeDOWAvailable() {
-        return employeeDOWAvailable;
+    public Set<DayOfWeek> getEmployeeDOWAvailable() {
+
+        return getEmployeeDOWAvailable();
     }
 }

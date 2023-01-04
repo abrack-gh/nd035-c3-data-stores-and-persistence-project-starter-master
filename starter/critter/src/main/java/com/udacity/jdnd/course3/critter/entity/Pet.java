@@ -4,6 +4,7 @@ import com.udacity.jdnd.course3.critter.enums.PetType;
 
 import javax.persistence.*;
 import java.time.DayOfWeek;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,11 +17,20 @@ public class Pet {
     private PetType petType;
     private Integer age;
     private String notes;
+    private List<Schedule> schedule;
 
     @ElementCollection
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "customerId")
     private Customers customers;
+
+    public List<Schedule> getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(List<Schedule> schedule) {
+        this.schedule = schedule;
+    }
 
     public Long getId() {
         return id;

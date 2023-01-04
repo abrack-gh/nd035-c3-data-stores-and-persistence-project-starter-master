@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.dto;
 
+import com.udacity.jdnd.course3.critter.entity.Pet;
 import com.udacity.jdnd.course3.critter.enums.PetType;
 
 public class PetDTO {
@@ -11,13 +12,15 @@ public class PetDTO {
     private String notes;
     private Long ownerId;
 
-    public PetDTO(Long id, String name, PetType petType, Integer age, String notes, Long ownerId) {
-        this.id = id;
-        this.name = name;
-        this.petType = petType;
-        this.age = age;
-        this.notes = notes;
-        this.ownerId = ownerId;
+    public PetDTO(Pet pet) {
+        this.id = pet.getId();
+        this.name = pet.getName();
+        this.petType = pet.getPetType();
+        this.age = pet.getAge();
+        this.notes = pet.getNotes();
+        if(pet.getCustomers() !=null){
+            this.ownerId = pet.getCustomers().getId();
+        }
     }
 
     public Long getId() {
