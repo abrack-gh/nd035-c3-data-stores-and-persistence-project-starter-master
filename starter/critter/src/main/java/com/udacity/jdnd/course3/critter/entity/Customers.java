@@ -42,6 +42,10 @@ public class Customers {
         return pets;
     }
 
+    public List<Pet> getPetsById(Long petId){
+        return this.getPetsById(petId);
+    }
+
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }

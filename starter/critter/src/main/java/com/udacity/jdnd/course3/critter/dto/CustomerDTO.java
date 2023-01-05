@@ -20,6 +20,9 @@ public class CustomerDTO {
         this.petId = petId;
     }
 
+    public CustomerDTO(Customers customers) {
+    }
+
     public Long getId() {
         return id;
     }

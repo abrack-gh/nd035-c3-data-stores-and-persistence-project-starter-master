@@ -35,5 +35,15 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
+    @GetMapping("/customer")
+    public Customers getCustomer(@PathVariable long customerId){
+        return customerService.getCustomerById(customerId);
+    }
+
+    @GetMapping("/customer/pet/{petId}")
+    public CustomerDTO getOwnerByPet(@PathVariable long petId){
+        return customerService.getOwnerByPet(petId);
+    }
+
 
 }

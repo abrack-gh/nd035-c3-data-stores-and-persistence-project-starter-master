@@ -4,6 +4,7 @@ import com.udacity.jdnd.course3.critter.entity.Employees;
 import com.udacity.jdnd.course3.critter.enums.EmployeeSkill;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -45,8 +46,20 @@ public class EmployeeDTO {
         return skills;
     }
 
-    public Set<DayOfWeek> getEmployeeDOWAvailable() {
+    public void setSkills (Set<EmployeeSkill> setSkills){
+        this.setSkills(setSkills);
+    }
+
+    public LocalDate getEmployeeDOWAvailable() {
 
         return getEmployeeDOWAvailable();
+    }
+
+    public void setDaysAvailable(Set<DayOfWeek> daysAvailable){
+        this.setDaysAvailable(daysAvailable);
+    }
+
+    public Set<Employees> getEmployeeBySkillsAndDaysAvailable(Set<EmployeeSkill> skills, Set<DayOfWeek> day){
+        return this.getEmployeeBySkillsAndDaysAvailable(skills, day);
     }
 }

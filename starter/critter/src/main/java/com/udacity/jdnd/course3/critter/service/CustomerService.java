@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -71,6 +72,11 @@ public class CustomerService {
 
         return customers;
     }
+
+    public CustomerDTO getOwnerByPet(Long petId){
+        Customers customers = customersRepository.getCustomerByPetId(petId);
+    }
+
 
     public Customers deleteCustomerById(Long customerId){
         Customers customer = customersRepository.getCustomerById(customerId);
