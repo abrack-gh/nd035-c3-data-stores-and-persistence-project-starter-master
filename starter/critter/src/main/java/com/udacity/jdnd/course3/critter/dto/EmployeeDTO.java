@@ -25,6 +25,10 @@ public class EmployeeDTO {
         this.employeeDOWAvailable = employee.getEmployeeDOWAvailable();
     }
 
+    public EmployeeDTO() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -39,6 +43,14 @@ public class EmployeeDTO {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Set<EmployeeSkill> getSkills() {

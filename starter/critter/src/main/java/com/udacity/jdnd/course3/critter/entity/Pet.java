@@ -1,6 +1,9 @@
 package com.udacity.jdnd.course3.critter.entity;
 
+import com.udacity.jdnd.course3.critter.dto.PetDTO;
 import com.udacity.jdnd.course3.critter.enums.PetType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.*;
 import java.time.DayOfWeek;
@@ -25,6 +28,10 @@ public class Pet {
     private Customers customers;
 
     public Pet(String name, PetType petType, String notes, Customers customer, Integer age) {
+    }
+
+    public Pet() {
+
     }
 
     public List<Schedule> getSchedule() {
@@ -81,6 +88,12 @@ public class Pet {
 
     public void setCustomers(Customers customers) {
         this.customers = customers;
+    }
+
+    public PetDTO getOwnerId(){
+        PetDTO getOwnerId = getOwnerId();
+
+        return getOwnerId;
     }
 }
 

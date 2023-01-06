@@ -23,6 +23,10 @@ public class CustomerDTO {
     public CustomerDTO(Customers customers) {
     }
 
+    public CustomerDTO() {
+
+    }
+
     public Long getId() {
         return id;
     }

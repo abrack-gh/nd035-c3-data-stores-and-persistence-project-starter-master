@@ -1,11 +1,13 @@
 package com.udacity.jdnd.course3.critter.entity;
 
+import com.udacity.jdnd.course3.critter.service.PetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class Customers {
@@ -19,6 +21,9 @@ public class Customers {
 
     @OneToMany(mappedBy = "customers", cascade = CascadeType.ALL)
     private List<Pet> pets;
+
+    public Customers() {
+    }
 
     public Customers(Long id, String fistName, String lastName, String phoneNumber, List<Pet> pets) {
         this.id = id;
@@ -55,5 +60,9 @@ public class Customers {
             pets = new ArrayList<>();
         }
         pets.add(pet);
+    }
+
+    public Map<Pet, Pet> getPetId() {
+        return getPetId();
     }
 }

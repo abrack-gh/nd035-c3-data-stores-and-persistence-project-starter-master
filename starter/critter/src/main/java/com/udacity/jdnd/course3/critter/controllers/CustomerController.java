@@ -41,7 +41,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/pet/{petId}")
-    public CustomerDTO getOwnerByPet(@PathVariable long petId){
+    public Customers getOwnerByPet(@PathVariable long petId){
         return customerService.getOwnerByPet(petId);
     }
 

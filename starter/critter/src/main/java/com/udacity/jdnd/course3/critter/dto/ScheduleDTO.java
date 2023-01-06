@@ -22,6 +22,10 @@ public class ScheduleDTO {
         this.localDate = localDate;
     }
 
+    public ScheduleDTO() {
+
+    }
+
     public Long getId() {
         return id;
     }
