@@ -39,7 +39,7 @@ public class ScheduleController {
     }
 
     @GetMapping("/customer/{customerId}")
-    public List<Schedule> getScheduleForCustomer(@PathVariable long customerId){
+    public List<ScheduleDTO> getScheduleForCustomer(@PathVariable long customerId){
 
         return scheduleService.getScheduleForCustomer(customerId);
     }
