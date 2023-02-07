@@ -4,10 +4,11 @@ import com.udacity.jdnd.course3.critter.service.PetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.persistence.*;
 
 @Entity
 public class Customers {

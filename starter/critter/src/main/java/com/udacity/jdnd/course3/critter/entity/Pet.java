@@ -5,10 +5,11 @@ import com.udacity.jdnd.course3.critter.enums.PetType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jakarta.persistence.*;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.Set;
+
+import javax.persistence.*;
 
 @Entity
 public class Pet {
